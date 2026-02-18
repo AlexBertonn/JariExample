@@ -39,15 +39,25 @@
 .tabela-dados .analista-row {
   margin-top: 20px;
   display: flex;
-  gap: 20px;
-  align-items: center;
+  height: 35px;
 }
 
 .tabela-dados .checks {
   display: flex;
-  gap: 20px;
-  font-size: 14px;
-  color: #374151;
+}
+
+.tabela-dados .check-item {
+  display: flex;
+  align-items: left;
+  width: 40%;
+  margin: 10px;
+}
+
+.tabela-dados .check {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 10px;
 }
 
 /* TABELA */

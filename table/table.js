@@ -16,6 +16,9 @@ export function Table() {
           <label>Série</label>
           <select>
             <option></option>
+            <option>A</option>
+            <option>AI</option>
+            <option>AC</option>
           </select>
         </div>
 
@@ -33,6 +36,8 @@ export function Table() {
           <label>Quant. resultado</label>
           <select>
             <option>30</option>
+            <option>50</option>
+            <option>100</option>
           </select>
         </div>
 
@@ -40,6 +45,8 @@ export function Table() {
           <label>Diligência aberta</label>
           <select>
             <option></option>
+            <option>Sim</option>
+            <option>Não</option>
           </select>
         </div>
       </div>
@@ -48,10 +55,23 @@ export function Table() {
         <input type="text" placeholder="Analista" />
 
         <div class="checks">
-          <label><input type="checkbox" /> Pendentes de análise</label>
-          <label><input type="checkbox" /> Pendente de aprovação</label>
-          <label><input type="checkbox" /> Observações</label>
-        </div>
+
+      <label class="check-item">
+        <input type="checkbox" class="check"/>
+        Pendentes de análise
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" class="check"/>
+        Pendente de aprovação
+      </label>
+
+      <label class="check-item">
+        <input type="checkbox" class="check"/>
+        Observações
+      </label>
+      </div>
+
       </div>
 
       <table>
@@ -64,22 +84,24 @@ export function Table() {
             <th>Observações</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>252813</td>
-            <td>230001081678202505</td>
-            <td>AI06707605</td>
-            <td>LQK5C21</td>
-            <td>Alterar capa para nome do recorrente</td>
-          </tr>
-          <tr>
-            <td>252813</td>
-            <td>230001081678202505</td>
-            <td>AI06707605</td>
-            <td>LQK5C21</td>
-            <td>Fazer diligência confirmar placa.</td>
-          </tr>
-        </tbody>
+            <tbody>
+      <tr class="linha-click">
+        <td>252813</td>
+        <td>230001081678202505</td>
+        <td>AI06707605</td>
+        <td>LQK5C21</td>
+        <td>Alterar capa para nome do recorrente</td>
+      </tr>
+
+      <tr class="linha-click">
+        <td>252813</td>
+        <td>230001081678202505</td>
+        <td>AI06707605</td>
+        <td>LQK5C21</td>
+        <td>Fazer diligência confirmar placa.</td>
+      </tr>
+    </tbody>
+
       </table>
     </div>
     `;
