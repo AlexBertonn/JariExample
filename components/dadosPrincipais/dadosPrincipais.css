@@ -59,39 +59,3 @@
   cursor: pointer;
   margin: 10px;
 }
-
-/* TABELA */
-
-.tabela-dados table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 25px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.tabela-dados thead {
-  background: #e5e7eb;
-}
-
-.tabela-dados th {
-  padding: 12px;
-  text-align: left;
-  font-size: 14px;
-  color: #374151;
-}
-
-.tabela-dados td {
-  padding: 12px;
-  border-top: 1px solid #e5e7eb;
-  font-size: 14px;
-  color: #111827;
-}
-
-/* HOVER */
-
-.tabela-dados tbody tr:hover {
-  background: #f9fafb;
-}

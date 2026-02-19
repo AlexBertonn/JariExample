@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Análise de Recurso</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="table/table.css" />
-    <link rel="stylesheet" href="sidebar/sidebar.css" />
-    <link rel="stylesheet" href="nav/header.css" />
+    <link rel="stylesheet" href="components/table/table.css" />
+    <link rel="stylesheet" href="components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="components/nav/header.css" />
+    <link
+      rel="stylesheet"
+      href="components/dadosPrincipais/dadosPrincipais.css"
+    />
   </head>
 
   <body>
@@ -28,11 +32,12 @@
           <div class="actions">
             <button>F7-Novo</button>
             <button>F8-Abrir</button>
-            <button>Prosseguir</button>
+            <button onclick="mostrarTabela()">Prosseguir</button>
             <button class="primary">Buscar Recurso</button>
           </div>
         </div>
 
+        <div id="dados-principais"></div>
         <!-- CALL DA TABLE DE DADOS -->
         <div id="table-container"></div>
         <!-- ---------------------- -->
