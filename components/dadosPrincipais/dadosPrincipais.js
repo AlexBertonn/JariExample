@@ -1,5 +1,16 @@
 export function DadosPrincipais() {
   return `
+  <h2>Análise de Recurso</h2>
+  <div class="card-header">
+          <h3>Dados Principais</h3>
+          <div class="actions">
+            <button>F7-Novo</button>
+            <button>F8-Abrir</button>
+            <button onclick="mostrarTabela()">Prosseguir</button>
+            <button class="primary">Buscar Recurso</button>
+          </div>
+  </div>
+
   <div class="tabela-dados">
     <div class="form-grid">
         <div class="field">
