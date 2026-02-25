@@ -1,4 +1,4 @@
-export function Header() {
+export function Topbar() {
   return `
     <header class="topbar">
       <div class="logo">DER MG</div>

@@ -1,11 +1,11 @@
 import { Table } from "./components/table/table.js";
 import { SideBar } from "./components/sidebar/sidebar.js";
-import { Header } from "./components/nav/header.js";
-import { DadosPrincipais } from "./components/dadosPrincipais/dadosPrincipais.js";
+import { Topbar } from "./components/header/Topbar.js";
+import { DadosBusca } from "./components/dadosBusca/dadosBusca.js";
 
 document.getElementById("sideBar-container").innerHTML = SideBar();
-document.getElementById("header-container").innerHTML = Header();
-document.getElementById("dados-principais").innerHTML = DadosPrincipais();
+document.getElementById("header-container").innerHTML = Topbar();
+document.getElementById("dados-busca").innerHTML = DadosBusca();
 
 function mostrarTabela() {
   const container = document.getElementById("table-container");

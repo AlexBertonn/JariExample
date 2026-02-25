@@ -1,4 +1,4 @@
-export function DadosPrincipais() {
+export function DadosBusca() {
   return `
   <h2>Análise de Recurso</h2>
   <div class="card-header">
