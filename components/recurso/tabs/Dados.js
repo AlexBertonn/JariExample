@@ -1,4 +1,8 @@
+import { RECURSO_BASE } from "../../../DATA/DATA-RECURSO.js";
+
 export function Dados() {
+  const dR = RECURSO_BASE;
+
   return `
     <div class="bloco-dados">
       <h3>Auto de Infração</h3>
@@ -6,33 +10,33 @@ export function Dados() {
         <tbody>
           <tr>
             <td><strong>Auto de infração</strong></td>
-            <td>AC00350180</td>
+            <td>${dR.autoInfracao.numero}</td>
             <td><strong>Data e hora</strong></td>
-            <td>12/09/2017 11:04</td>
+            <td>${dR.autoInfracao.dataHora}</td>
           </tr>
           <tr>
             <td><strong>Processamento</strong></td>
-            <td>7806798</td>
+            <td>${dR.autoInfracao.processamento}</td>
             <td><strong>Município</strong></td>
-            <td>4417 - Curvelo - MG</td>
+            <td>${dR.autoInfracao.municipio}</td>
           </tr>
           <tr>
             <td><strong>Infração</strong></td>
             <td colspan="3">
-              596-7 0 - Ultrapassar pela contramão outro veículo, onde houver marcação viária longitudinal de divisão de fluxos opostos.
+              ${dR.autoInfracao.infracao.codigo} - ${dR.autoInfracao.infracao.descricao}
             </td>
           </tr>
           <tr>
             <td><strong>Local</strong></td>
-            <td>RODOVIA: br135 KM: 626.000</td>
+            <td>${dR.autoInfracao.local}</td>
             <td><strong>Recebimento/Publicação</strong></td>
-            <td>19/03/2018</td>
+            <td>${dR.autoInfracao.recebimentoPublicacao}</td>
           </tr>
           <tr>
             <td><strong>Órgão Autuador</strong></td>
-            <td>113200</td>
+            <td>${dR.autoInfracao.orgaoAutuador}</td>
             <td><strong>Agente</strong></td>
-            <td>1304864 - CRISTIANO SANTOS LORENTZ</td>
+            <td>${dR.autoInfracao.agente}</td>
           </tr>
         </tbody>
       </table>
@@ -44,21 +48,21 @@ export function Dados() {
         <tbody>
           <tr>
             <td><strong>Placa</strong></td>
-            <td>OPS7326</td>
+            <td>${dR.veiculo.placa}</td>
             <td><strong>Renavam</strong></td>
-            <td>532829492</td>
+            <td>${dR.veiculo.renavam}</td>
           </tr>
           <tr>
             <td><strong>Marca / Modelo</strong></td>
-            <td>I/FORD FUSION FWD GTDI</td>
+            <td>${dR.veiculo.marcaModelo}</td>
             <td><strong>Cor</strong></td>
-            <td>PRATA</td>
+            <td>${dR.veiculo.cor}</td>
           </tr>
           <tr>
             <td><strong>Nome do Proprietário</strong></td>
-            <td>RENATA RODRIGUES BARROSO</td>
+            <td>${dR.veiculo.proprietario.nome}</td>
             <td><strong>CPF/CNPJ</strong></td>
-            <td>065.474.636-21</td>
+            <td>${dR.veiculo.proprietario.documento}</td>
           </tr>
         </tbody>
       </table>
@@ -70,15 +74,15 @@ export function Dados() {
         <tbody>
           <tr>
             <td><strong>Requerente</strong></td>
-            <td>Condutor infrator</td>
+            <td>${dR.requerente.tipoRequerente}</td>
             <td><strong>Tipo</strong></td>
-            <td>Pessoa Física</td>
+            <td>${dR.requerente.tipoPessoa}</td>
           </tr>
           <tr>
             <td><strong>CPF/CNPJ</strong></td>
-            <td>065.474.636-21</td>
+            <td>${dR.requerente.documento}</td>
             <td><strong>Nome / Razão Social</strong></td>
-            <td>RENATA RODRIGUES BARROSO</td>
+            <td>${dR.requerente.nome}</td>
           </tr>
         </tbody>
       </table>
@@ -90,12 +94,12 @@ export function Dados() {
         <tbody>
           <tr>
             <td><strong>Nome</strong></td>
-            <td>WALTER RODRIGUES BARROSO</td>
+            <td>${dR.infrator.nome}</td>
             <td><strong>CPF/CNPJ</strong></td>
-            <td>054.287.446-69</td>
+            <td>${dR.infrator.documento}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    `;
+  `;
 }

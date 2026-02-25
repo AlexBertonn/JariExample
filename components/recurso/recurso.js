@@ -1,7 +1,3 @@
-// import { Recurso } from "./recurso/recurso.js";
-
-// document.getElementById("app").innerHTML = Recurso();
-
 import { Dados } from "./tabs/Dados.js";
 import { Alegacoes } from "./tabs/Alegacoes.js";
 import { Questionamento } from "./tabs/Questionamento.js";
@@ -10,6 +6,9 @@ import { Observacoes } from "./tabs/Observacoes.js";
 import { Topbar } from "../header/Topbar.js";
 import { BtnAnalise } from "../buttons/BtnAnalise.js";
 import { DadosRecurso } from "../dadosRecurso/DadosRecurso.js";
+import { ANALISE_PADRAO } from "../../DATA/DATA-ANALISE.js";
+
+let analiseAtual = JSON.parse(JSON.stringify(ANALISE_PADRAO));
 
 export function Recurso() {
   return `
@@ -51,6 +50,15 @@ function initTabs() {
 
   function render(tab) {
     container.innerHTML = screens[tab]();
+
+    if (tab === "questionamento") {
+      const bloco = document.querySelector(".bloco-questionamento");
+
+      bloco.addEventListener("change", () => {
+        analiseAtual.questionamento = capturarQuestionamento();
+        console.log("Atualizado:", analiseAtual.questionamento);
+      });
+    }
   }
 
   document.querySelectorAll(".tabs button").forEach((button) => {
@@ -70,3 +78,41 @@ function initTabs() {
 
 document.getElementById("app").innerHTML = Recurso();
 initTabs();
+
+function capturarQuestionamento() {
+  return {
+    infracaoCaracterizada: {
+      motivo:
+        document.querySelector('input[name="infracao_motivo"]:checked')
+          ?.value || "",
+      resposta:
+        document.querySelector('input[name="infracao_resposta"]:checked')
+          ?.value || "",
+    },
+
+    legitimidade: Array.from(
+      document.querySelectorAll('input[name="legitimidade"]:checked'),
+    ).map((el) => el.value),
+
+    tempestividade:
+      document.querySelector('input[name="tempestividade"]:checked')?.value ||
+      "",
+
+    artigo280: Array.from(
+      document.querySelectorAll('input[name="artigo280"]:checked'),
+    ).map((el) => el.value),
+
+    veiculoCorresponde:
+      document.querySelector('input[name="veiculo_corresponde"]:checked')
+        ?.value || "",
+
+    condutorIdentificado: {
+      situacao:
+        document.querySelector('input[name="condutor_situacao"]:checked')
+          ?.value || "",
+      complemento:
+        document.querySelector('input[name="condutor_complemento"]:checked')
+          ?.value || "",
+    },
+  };
+}
