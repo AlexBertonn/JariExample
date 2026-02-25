@@ -8,7 +8,18 @@ import { BtnAnalise } from "../buttons/BtnAnalise.js";
 import { DadosRecurso } from "../dadosRecurso/DadosRecurso.js";
 import { ANALISE_PADRAO } from "../../DATA/DATA-ANALISE.js";
 
-let analiseAtual = JSON.parse(JSON.stringify(ANALISE_PADRAO));
+const STORAGE_KEY = "recursoAnalise";
+
+function carregarAnalise() {
+  const salvo = localStorage.getItem(STORAGE_KEY);
+  return salvo ? JSON.parse(salvo) : JSON.parse(JSON.stringify(ANALISE_PADRAO));
+}
+
+function salvarAnalise() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(analiseAtual));
+}
+
+let analiseAtual = carregarAnalise();
 
 export function Recurso() {
   return `
@@ -52,11 +63,23 @@ function initTabs() {
     container.innerHTML = screens[tab]();
 
     if (tab === "questionamento") {
+      hidratarQuestionamento(analiseAtual.questionamento);
+
       const bloco = document.querySelector(".bloco-questionamento");
 
       bloco.addEventListener("change", () => {
         analiseAtual.questionamento = capturarQuestionamento();
-        console.log("Atualizado:", analiseAtual.questionamento);
+        salvarAnalise();
+      });
+    }
+    if (tab === "alegacao") {
+      hidratarAlegacoes(analiseAtual.alegacao);
+
+      const bloco = document.querySelector(".bloco-alegacoes");
+
+      bloco.addEventListener("change", () => {
+        analiseAtual.alegacao = capturarAlegacoes();
+        salvarAnalise();
       });
     }
   }
@@ -115,4 +138,71 @@ function capturarQuestionamento() {
           ?.value || "",
     },
   };
+}
+
+function marcarRadio(name, value) {
+  if (!value) return;
+  const el = document.querySelector(
+    `input[type="radio"][name="${name}"][value="${value}"]`,
+  );
+  if (el) el.checked = true;
+}
+
+function marcarCheckboxes(name, values) {
+  if (!Array.isArray(values)) return;
+  values.forEach((v) => {
+    const el = document.querySelector(
+      `input[type="checkbox"][name="${name}"][value="${v}"]`,
+    );
+    if (el) el.checked = true;
+  });
+}
+
+function hidratarQuestionamento(q) {
+  if (!q) return;
+
+  marcarRadio("infracao_motivo", q.infracaoCaracterizada?.motivo);
+  marcarRadio("infracao_resposta", q.infracaoCaracterizada?.resposta);
+
+  marcarCheckboxes("legitimidade", q.legitimidade);
+
+  marcarRadio("tempestividade", q.tempestividade);
+
+  marcarCheckboxes("artigo280", q.artigo280);
+
+  marcarRadio("veiculo_corresponde", q.veiculoCorresponde);
+
+  marcarRadio("condutor_situacao", q.condutorIdentificado?.situacao);
+  marcarRadio("condutor_complemento", q.condutorIdentificado?.complemento);
+}
+
+function capturarAlegacoes() {
+  return {
+    comprovacao: Array.from(
+      document.querySelectorAll('input[name="alegacao_comprovacao"]:checked'),
+    ).map((el) => el.value),
+
+    comprovacaoStatus:
+      document.querySelector(
+        'input[name="alegacao_comprovacao_status"]:checked',
+      )?.value || "",
+
+    lavratura: Array.from(
+      document.querySelectorAll('input[name="alegacao_lavratura"]:checked'),
+    ).map((el) => el.value),
+
+    lavraturaStatus:
+      document.querySelector('input[name="alegacao_lavratura_status"]:checked')
+        ?.value || "",
+  };
+}
+
+function hidratarAlegacoes(a) {
+  if (!a) return;
+
+  marcarCheckboxes("alegacao_comprovacao", a.comprovacao);
+  marcarRadio("alegacao_comprovacao_status", a.comprovacaoStatus);
+
+  marcarCheckboxes("alegacao_lavratura", a.lavratura);
+  marcarRadio("alegacao_lavratura_status", a.lavraturaStatus);
 }

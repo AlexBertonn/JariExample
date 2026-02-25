@@ -13,7 +13,14 @@ export const ANALISE_PADRAO = {
       complemento: "",
     },
   },
-  alegacao: "",
+
+  alegacao: {
+    comprovacao: [],
+    comprovacaoStatus: "",
+    lavratura: [],
+    lavraturaStatus: "",
+  },
+
   parecer: "",
   observacao: "",
 };
