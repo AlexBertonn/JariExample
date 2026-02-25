@@ -1,5 +1,9 @@
 export function Parecer() {
   return `
-    <h2>Testando papai 4</h2>
+    <h3>Parecer</h3>
+        <div class="form-section">
+            <textarea></textarea
+          >
+        </div>
     `;
 }

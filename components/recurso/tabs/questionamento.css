@@ -1,0 +1,31 @@
+.bloco-questionamento {
+  font-size: 14px;
+}
+
+.bloco-questionamento h2 {
+  margin-bottom: 15px;
+}
+
+.question-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.question-box h3 {
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.question-grid label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+}

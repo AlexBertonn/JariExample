@@ -30,6 +30,15 @@ body {
   margin-left: 15px;
   cursor: pointer;
 }
+
+/* PAGINA PRINCIPAL */
+.recurso-page {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
 /* BOTÕES SUPERIORES (BtnAnalise) */
 .top-actions {
   display: flex;
@@ -57,20 +66,11 @@ body {
   color: white;
 }
 
-/* CARD PRINCIPAL */
-.recurso-page {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
 /* TABS */
 .tabs {
   display: flex;
   gap: 25px;
   margin-bottom: 20px;
-  border-bottom: 1px solid #e5e7eb;
 }
 
 .tabs button {

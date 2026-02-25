@@ -19,16 +19,17 @@ export function Recurso() {
     <div class="recurso-page">
     ${BtnAnalise()}
     ${DadosRecurso()}
+    
+    <div class="tabs">
+      <button data-tab="dados">Dados</button>
+      <button data-tab="questionamento">Questionamento</button>
+      <button data-tab="alegacao">Alegação</button>
+      <button data-tab="parecer">Parecer</button>
+      <button data-tab="observacoes">Observações</button>
+      <button data-tab="anexo">Anexo</button>
+      <button data-tab="movimentacao">Movimentação</button>
+    </div>
 
-        <div class="tabs">
-          <button data-tab="dados">Dados</button>
-          <button data-tab="questionamento">Questionamento</button>
-          <button data-tab="alegacao">Alegação</button>
-          <button data-tab="parecer">Parecer</button>
-          <button data-tab="observacoes">Observações</button>
-          <button data-tab="anexo">Anexo</button>
-          <button data-tab="movimentacao">Movimentação</button>
-        </div>
 
         <div id="tab-container"></div>
 
