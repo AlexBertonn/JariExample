@@ -1,9 +1,11 @@
 export function Observacoes() {
   return `
-     <h3>Observações</h3>
+     <div class="bloco-observacoes">
+      <h3>Observações</h3>
 
-        <div class="form-section">
-            <textarea id="obs" placeholder="Digite aqui suas observações ao analista..." required></textarea>
-        </div>
+      <div class="form-section">
+        <textarea id="observacoes-texto" placeholder="Digite as observações..."></textarea>
+      </div>
+    </div>
     `;
 }

@@ -21,6 +21,10 @@ export const ANALISE_PADRAO = {
     lavraturaStatus: "",
   },
 
-  parecer: "",
+  parecer: {
+    justificativa: "",
+    codigo: "",
+    voto: "",
+  },
   observacao: "",
 };

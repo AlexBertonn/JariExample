@@ -17,10 +17,6 @@ export function Alegacoes() {
             <label><input type="checkbox" name="alegacao_comprovacao" value="estado_necessidade"> Recorrente alega que encontrava-se em estado de necessidade.</label>
             <label><input type="checkbox" name="alegacao_comprovacao" value="equipamento_nao_aferido"> Recorrente alega que o equipamento não encontrava-se devidamente aferido.</label>
           </div>
-
-          <div>
-            <label><input type="radio" name="alegacao_comprovacao_status" value="nao_aplicado" checked> Não aplicado</label>
-          </div>
         </div>
       </div>
 
@@ -36,10 +32,6 @@ export function Alegacoes() {
             <label><input type="checkbox" name="alegacao_lavratura" value="irregularidade_tipificacao"> Recorrente alega irregularidade na lavratura da tipificação da infração.</label>
             <label><input type="checkbox" name="alegacao_lavratura" value="irregularidade_campo_observacoes"> Recorrente alega irregularidade na lavratura do campo observações.</label>
             <label><input type="checkbox" name="alegacao_lavratura" value="falta_assinatura_agente"> Recorrente alega falta de assinatura do agente.</label>
-          </div>
-
-          <div>
-            <label><input type="radio" name="alegacao_lavratura_status" value="nao_aplicado" checked> Não aplicado</label>
           </div>
         </div>
 
