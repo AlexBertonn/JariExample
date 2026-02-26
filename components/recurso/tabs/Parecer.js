@@ -5,10 +5,10 @@ export function Parecer() {
 
       <div class="form-section">
         <label>Admissibilidade</label>
-        <textarea id="parecer-admissibilidade" readonly placeholder="Preenchido automaticamente a partir do Questionamento"></textarea>
+        <textarea id="parecer-admissibilidade" readonly></textarea>
 
         <label>Alegações</label>
-        <textarea id="parecer-alegacoes" readonly placeholder="Preenchido automaticamente a partir das Alegações"></textarea>
+        <textarea id="parecer-alegacoes" readonly></textarea>
 
         <label>Parecer</label>
         <select id="parecer-codigo" class="select-pequeno">
