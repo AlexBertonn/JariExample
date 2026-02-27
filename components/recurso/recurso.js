@@ -8,6 +8,7 @@ import { BtnAnalise } from "../buttons/BtnAnalise.js";
 import { DadosRecurso } from "../dadosRecurso/DadosRecurso.js";
 import { ANALISE_PADRAO } from "../../DATA/DATA-ANALISE.js";
 import { RECURSO_BASE } from "../../../DATA/DATA-RECURSO.js";
+import { PARECER_PADRAO } from "../../DATA/DATA-PARECER.js";
 
 const STORAGE_KEY = "recursoAnalise";
 
@@ -21,6 +22,30 @@ function salvarAnalise() {
 }
 
 let analiseAtual = carregarAnalise();
+
+function getTextoPadraoParecer(codigo) {
+  return PARECER_PADRAO?.[codigo]?.texto ?? "";
+}
+
+function ehJustificativaPadrao(texto) {
+  if (!texto) return true;
+  const textosPadrao = Object.values(PARECER_PADRAO || {}).map(
+    (x) => x?.texto ?? "",
+  );
+  return textosPadrao.includes(texto);
+}
+
+function aplicarTextoPadraoParecer(codigo, justificativaEl) {
+  if (!justificativaEl) return;
+
+  const textoPadrao = getTextoPadraoParecer(codigo);
+
+  if (!justificativaEl.value || ehJustificativaPadrao(justificativaEl.value)) {
+    justificativaEl.value = textoPadrao;
+    analiseAtual.parecer = analiseAtual.parecer || {};
+    analiseAtual.parecer.justificativa = justificativaEl.value;
+  }
+}
 
 export function Recurso() {
   return `
@@ -85,22 +110,36 @@ function initTabs() {
     }
     if (tab === "parecer") {
       hidratarParecer();
-      const descricao = RECURSO_BASE?.autoInfracao?.infracao?.descricao ?? "";
-      atualizarParecerDerivado(descricao);
+      atualizarParecerDerivado();
 
       const justificativaEl = document.getElementById("parecer-justificativa");
       const codigoEl = document.getElementById("parecer-codigo");
       const votoEl = document.getElementById("parecer-voto");
 
+      if (!justificativaEl || !codigoEl || !votoEl) return;
+
+      aplicarTextoPadraoParecer(codigoEl.value, justificativaEl);
+      salvarAnalise();
+
       justificativaEl.addEventListener("input", () => {
+        analiseAtual.parecer = analiseAtual.parecer || {};
         analiseAtual.parecer.justificativa = justificativaEl.value;
         salvarAnalise();
       });
+
       codigoEl.addEventListener("change", () => {
-        analiseAtual.parecer.codigo = codigoEl.value;
+        const codigo = codigoEl.value;
+
+        analiseAtual.parecer = analiseAtual.parecer || {};
+        analiseAtual.parecer.codigo = codigo;
+
+        aplicarTextoPadraoParecer(codigo, justificativaEl);
+
         salvarAnalise();
       });
+
       votoEl.addEventListener("change", () => {
+        analiseAtual.parecer = analiseAtual.parecer || {};
         analiseAtual.parecer.voto = votoEl.value;
         salvarAnalise();
       });
