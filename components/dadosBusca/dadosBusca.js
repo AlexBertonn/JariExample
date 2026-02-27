@@ -51,15 +51,27 @@ export function DadosBusca() {
             <option>100</option>
           </select>
         </div>
+        <div class="field">
+          <label>Quant. resultado</label>
+          <select>
+            <option>30</option>
+            <option>50</option>
+            <option>100</option>
+          </select>
+        </div>
 
         <div class="field">
-          <label>Diligência aberta</label>
+        </div>
+
+        <div class="field">
+          <label>Ordem de prescrição</label>
           <select>
             <option></option>
             <option>Sim</option>
             <option>Não</option>
           </select>
         </div>
+
       </div>
 
       <div class="analista-row">
@@ -79,7 +91,11 @@ export function DadosBusca() {
 
       <label class="check-item">
         <input type="checkbox" class="check"/>
-        Observações
+        Observações Analista
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="check"/>
+        Observações Revisor
       </label>
     </div>
 </div>

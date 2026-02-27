@@ -10,6 +10,7 @@ export const RECURSO_BASE = {
         "Ultrapassar pela contramão outro veículo, onde houver marcação viária longitudinal de divisão de fluxos opostos.",
     },
     local: "RODOVIA: br135 KM: 626.000",
+    urg: "21ª",
     recebimentoPublicacao: "19/03/2018",
     orgaoAutuador: "113200",
     agente: "1304864 - CRISTIANO SANTOS LORENTZ",

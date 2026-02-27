@@ -4,7 +4,10 @@ export function Observacoes() {
       <h3>Observações</h3>
 
       <div class="form-section">
-        <textarea id="observacoes-texto" placeholder="Digite as observações..."></textarea>
+        <textarea id="observacoes-texto" placeholder="Observações analista..."></textarea>
+      </div>
+      <div class="form-section">
+        <textarea id="observacoes-texto" placeholder="Observações revisor..."></textarea>
       </div>
     </div>
     `;

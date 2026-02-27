@@ -21,6 +21,10 @@ export function Dados() {
             <td>${dR.autoInfracao.municipio}</td>
           </tr>
           <tr>
+            <td><strong>URG</strong></td>
+            <td>${dR.autoInfracao.urg}</td>
+          </tr>
+          <tr>
             <td><strong>Infração</strong></td>
             <td colspan="3">
               ${dR.autoInfracao.infracao.codigo} - ${dR.autoInfracao.infracao.descricao}

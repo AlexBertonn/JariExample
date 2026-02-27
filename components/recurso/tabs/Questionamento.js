@@ -68,31 +68,11 @@ export function Questionamento() {
 
         <div class="question-grid">
           <div>
-            <label><input type="checkbox" name="artigo280" value="clonagem_placa"> O recorrente comprova a clonagem da placa do veículo.</label>
-            <label><input type="checkbox" name="artigo280" value="veiculo_clonado"> Veículo clonado.</label>
-            <label><input type="checkbox" name="artigo280" value="condutor_habilitado"> O recorrente comprova que o condutor estava devidamente habilitado.</label>
-            <label><input type="checkbox" name="artigo280" value="comprova_alegacoes"> O recorrente comprova suas alegações.</label>
-            <label><input type="checkbox" name="artigo280" value="prescricao"> Decurso de prazo (prescrição).</label>
-            <label><input type="checkbox" name="artigo280" value="erro_chassi_renavam"> Erro na identificação do Chassi/Renavam.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_especie_veiculo"> Erro/omissão na identificação da espécie do veículo.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_marca_modelo"> Erro na identificação da marca/modelo do veículo.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_identificacao_veiculo"> Erro/omissão na identificação do veículo infrator.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_local_infracao"> Erro na identificação do local da infração.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_tipificacao"> Erro na tipificação da infração.</label>
-            <label><input type="checkbox" name="artigo280" value="veiculo_licenciado"> O recorrente comprova que o veículo estava devidamente licenciado.</label>
+            <label><input type="radio" name="artigo280" value="clonagem_placa"> Sim.</label>
           </div>
 
           <div>
-            <label><input type="checkbox" name="artigo280" value="auto_correto"> O auto de infração foi corretamente emitido.</label>
-            <label><input type="checkbox" name="artigo280" value="rasura_identificacao"> Rasura na identificação do veículo infrator.</label>
-            <label><input type="checkbox" name="artigo280" value="excludentes_responsabilidade"> Excludentes de responsabilidade.</label>
-            <label><input type="checkbox" name="artigo280" value="bis_in_idem"> Infração caracterizada como bis in idem.</label>
-            <label><input type="checkbox" name="artigo280" value="nao"> Não.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_codigo_municipio"> Erro na digitação do código do município.</label>
-            <label><input type="checkbox" name="artigo280" value="registrado_radar_balanca"> Autuação registrada por equipamento RADAR ou BALANÇA.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_dados_veiculo"> Erro na digitação dos dados de identificação do veículo infrator.</label>
-            <label><input type="checkbox" name="artigo280" value="erro_codigo_infracao"> Erro na digitação do código da infração.</label>
-            <label><input type="checkbox" name="artigo280" value="nao_aplicado"> Não aplicado</label>
+            <label><input type="radio" name="artigo280" value="auto_correto"> Não.</label>
           </div>
         </div>
       </div>

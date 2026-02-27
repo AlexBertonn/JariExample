@@ -1,4 +1,7 @@
+import { RECURSO_BASE } from "../../../DATA/DATA-RECURSO.js";
+
 export function Table() {
+  const dR = RECURSO_BASE;
   return `
   
       <table>
@@ -14,9 +17,9 @@ export function Table() {
                 <tbody>
           <tr class="linha-click">
             <td>252813</td>
-            <td>230001081678202505</td>
-            <td>AI06707605</td>
-            <td>LQK5C21</td>
+            <td>${dR.autoInfracao.processamento}</td>
+            <td>${dR.autoInfracao.numero}</td>
+            <td>${dR.veiculo.placa}</td>
             <td>Alterar capa para nome do recorrente</td>
           </tr>
 

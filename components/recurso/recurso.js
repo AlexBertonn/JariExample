@@ -7,6 +7,7 @@ import { Topbar } from "../header/Topbar.js";
 import { BtnAnalise } from "../buttons/BtnAnalise.js";
 import { DadosRecurso } from "../dadosRecurso/DadosRecurso.js";
 import { ANALISE_PADRAO } from "../../DATA/DATA-ANALISE.js";
+import { RECURSO_BASE } from "../../../DATA/DATA-RECURSO.js";
 
 const STORAGE_KEY = "recursoAnalise";
 
@@ -84,7 +85,8 @@ function initTabs() {
     }
     if (tab === "parecer") {
       hidratarParecer();
-      atualizarParecerDerivado();
+      const descricao = RECURSO_BASE?.autoInfracao?.infracao?.descricao ?? "";
+      atualizarParecerDerivado(descricao);
 
       const justificativaEl = document.getElementById("parecer-justificativa");
       const codigoEl = document.getElementById("parecer-codigo");
@@ -299,8 +301,17 @@ function atualizarParecerDerivado() {
   const admEl = document.getElementById("parecer-admissibilidade");
   const alegEl = document.getElementById("parecer-alegacoes");
 
+  if (!admEl || !alegEl) return;
+
+  const descricaoInfracao =
+    RECURSO_BASE?.autoInfracao?.infracao?.descricao ?? "";
+
   admEl.value = formatarQuestionamentoParaTexto(analiseAtual.questionamento);
-  alegEl.value = formatarAlegacoesParaTexto(analiseAtual.alegacao);
+
+  alegEl.value = formatarAlegacoesParaTexto(
+    analiseAtual.alegacao,
+    descricaoInfracao,
+  );
 }
 
 function formatarQuestionamentoParaTexto(q) {
@@ -331,26 +342,24 @@ function formatarQuestionamentoParaTexto(q) {
   return linhas.join("\n");
 }
 
-function formatarAlegacoesParaTexto(a) {
-  if (!a) return "";
-
+function formatarAlegacoesParaTexto(a, descricaoInfracao = "") {
   const linhas = [];
 
-  if (a.comprovacao?.length) {
-    linhas.push(a.comprovacao.map((x) => x.label).join(", "));
+  if (descricaoInfracao) {
+    linhas.push(`A infração ocorreu por ${descricaoInfracao}`);
   }
 
-  if (a.comprovacaoStatus?.label) {
-    linhas.push(a.comprovacaoStatus.label);
-  }
+  if (!a) return linhas.join("\n");
 
-  if (a.lavratura?.length) {
-    linhas.push(a.lavratura.map((x) => x.label).join(", "));
-  }
+  if (a.comprovacao?.length)
+    linhas.push(a.comprovacao.map((x) => x.label).join("\n"));
 
-  if (a.lavraturaStatus?.label) {
-    linhas.push(a.lavraturaStatus.label);
-  }
+  if (a.comprovacaoStatus?.label) linhas.push(a.comprovacaoStatus.label);
+
+  if (a.lavratura?.length)
+    linhas.push(a.lavratura.map((x) => x.label).join("\n"));
+
+  if (a.lavraturaStatus?.label) linhas.push(a.lavraturaStatus.label);
 
   return linhas.join("\n");
 }
