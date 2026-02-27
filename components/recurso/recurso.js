@@ -106,12 +106,23 @@ function initTabs() {
       });
     }
     if (tab === "observacoes") {
-      const textarea = document.getElementById("observacoes-texto");
+      const analistaEl = document.getElementById("observacoes-analista");
+      const revisorEl = document.getElementById("observacoes-revisor");
 
-      if (!textarea) return;
-      textarea.value = analiseAtual.observacao || "";
-      textarea.addEventListener("input", () => {
-        analiseAtual.observacao = textarea.value;
+      if (!analistaEl || !revisorEl) return;
+
+      analistaEl.value = analiseAtual.observacao?.analista || "";
+      revisorEl.value = analiseAtual.observacao?.revisor || "";
+
+      analistaEl.addEventListener("input", () => {
+        analiseAtual.observacao = analiseAtual.observacao || {};
+        analiseAtual.observacao.analista = analistaEl.value;
+        salvarAnalise();
+      });
+
+      revisorEl.addEventListener("input", () => {
+        analiseAtual.observacao = analiseAtual.observacao || {};
+        analiseAtual.observacao.revisor = revisorEl.value;
         salvarAnalise();
       });
     }

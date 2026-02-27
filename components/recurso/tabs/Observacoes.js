@@ -4,11 +4,14 @@ export function Observacoes() {
       <h3>Observações</h3>
 
       <div class="form-section">
-        <textarea id="observacoes-texto" placeholder="Observações analista..."></textarea>
+        <label>Analista</label>
+        <textarea id="observacoes-analista" placeholder="Observações analista..."></textarea>
       </div>
+
       <div class="form-section">
-        <textarea id="observacoes-texto" placeholder="Observações revisor..."></textarea>
+        <label>Revisor</label>
+        <textarea id="observacoes-revisor" placeholder="Observações revisor..."></textarea>
       </div>
     </div>
-    `;
+  `;
 }
