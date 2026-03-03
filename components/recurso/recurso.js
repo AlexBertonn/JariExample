@@ -7,7 +7,7 @@ import { Topbar } from "../header/Topbar.js";
 import { BtnAnalise } from "../buttons/BtnAnalise.js";
 import { DadosRecurso } from "../dadosRecurso/DadosRecurso.js";
 import { ANALISE_PADRAO } from "../../DATA/DATA-ANALISE.js";
-import { RECURSO_BASE } from "../../../DATA/DATA-RECURSO.js";
+import { RECURSO_BASE } from "../../DATA/DATA-RECURSO.js";
 import { PARECER_PADRAO } from "../../DATA/DATA-PARECER.js";
 
 const STORAGE_KEY = "recursoAnalise";
