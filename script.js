@@ -18,6 +18,6 @@ document.addEventListener("click", (e) => {
   const linha = e.target.closest(".linha-click");
 
   if (linha) {
-    window.open("recurso.html", "_blank");
+    window.open("./recurso.html", "_blank");
   }
 });

@@ -1,4 +1,4 @@
-import { RECURSO_BASE } from "../../../DATA/DATA-RECURSO.js";
+import { RECURSO_BASE } from "../../DATA/DATA-RECURSO.js";
 
 export function DadosRecurso() {
   const dR = RECURSO_BASE;
